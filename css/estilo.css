@@ -1,0 +1,236 @@
+.alert
+{
+	z-index: 99;
+}
+
+.btn_save
+{
+	display: block;
+	margin: auto;
+	margin-bottom: 2em;
+	font-size:3em;
+	background-color: rgba(0,0,205,1);
+	color: rgba(255,255,255,1);
+}
+
+.tela_login
+{
+	display: flex;
+	justify-content: center;
+	
+}
+
+.painel_log
+{
+	margin-top: 10%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	max-width: 600px;
+}
+
+.caixa_texto
+{
+	width: 100%;
+	height: 10em;
+	padding: 0.5em
+}
+
+.cabecalho
+{
+	display: flex;
+	width: 100%;
+	flex-flow: row;
+	background-color: #000000;
+	height: 4em;
+}
+
+.cab_info
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.cab_nome
+{
+	margin-top: 0.2em;
+	display: inline-block;
+	color: #FFFFFF;
+	padding-left: 0.3em;
+	z-index: 1;
+	align-items: center;
+	font-size: 2em
+}
+
+.cab_sair
+{
+	display: flex;
+	justify-content: right;
+	align-items: center;
+	flex-grow: 1;
+	
+}
+
+.cab_sair > a
+{
+	margin-right: 0.5em;
+	font-size: 3em;
+	color: #FFFFFF;
+	
+}
+
+#checkbox_menu
+{
+	display: none;
+}
+
+#checkbox_menu:checked ~ .menu_lateral
+{
+	display: block;
+	transform: translateX(250px);
+	transition-duration: 0.5s;
+}
+
+.form_log > input
+{
+	margin-bottom: 2em;
+}
+
+.form_log > button
+{
+  display: block;
+	margin: auto;
+	font-size: 1.5em;
+}
+
+.form_padrao
+{
+	margin: auto;
+}
+
+.form_padrao form label
+{
+	display: block;
+}
+
+.form_padrao form select
+{
+	display: block;
+	margin-bottom: 1em;
+}
+
+.form_padrao form button
+{
+	display: block;
+	margin: auto;
+}
+
+
+#icone_menu
+{
+	margin: 0.2em;
+	cursor: pointer;
+	font-size: 2.5em;
+	z-index: 1;
+	color: #FFFFFF;
+}
+
+.ico
+{
+	color: rgba(24,147,0,1);
+	
+}
+
+.ico2
+{
+	color: rgba(181,0,0,1)
+	
+}
+
+.menu_lateral
+{
+	padding-top: 4em;
+	background-color: #000000;
+	height: 100%;
+	width: 80%;
+	max-width: 250px;
+	position: absolute;
+	transition: all 0.2s linear;
+	left: -250px;
+	top: 0
+}
+
+.menu_lateral > nav
+{
+	position: absolute;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+		
+}
+
+.menu_lateral > nav > .link_menu
+{
+	background-color: #707070;
+	display: block;
+	text-decoration: none;
+	color: #FFFFFF;
+	padding: 1em;
+	margin-bottom: 5px;
+	transition: all 0.2s linear;
+	
+}
+
+.menu_lateral > nav > a:hover
+{
+	background-color: #0A006C;
+}
+
+.painel_360
+{
+	display: flex;
+	flex-direction: column;
+	border: 3px solid rgba(0,0,205,1);
+	border-radius: 5px;
+	margin-bottom: 1em;
+	
+}
+
+.painel_360_cab
+{
+	font-size: 2em;
+	background-color: rgba(0,0,205,1);
+	color: rgba(255,255,255,1);
+	padding: 0.3em
+}
+
+.painel_360_corp
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.painel_360_item
+{
+	display: flex;
+	border: 1px solid rgba(0,0,205,1);
+	padding: 0.5em 0;
+	flex-direction: row
+}
+
+.painel_360_sel
+{
+	margin: 0 0.2em
+}
+
+.painel_360_perg
+{
+	margin: 0 0.2em
+}
+
+
+
+
