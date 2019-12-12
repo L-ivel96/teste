@@ -43,5 +43,10 @@ class Produtos extends CI_Controller
 		
 	}
 
+	public function lista_produtos()
+	{
+		$dados = "";
+		$this->load->template("produtos/lista", $dados);
+	}
 
 }

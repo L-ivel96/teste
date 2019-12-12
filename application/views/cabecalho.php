@@ -12,6 +12,7 @@
 	<nav class="navbar navbar-inverse">
 		<ul class="nav navbar-nav">
 			<li><?= anchor('produtos/index','Cadastrar Produto', array("class" => "link_menu"))?></a></li>
+			<li><?= anchor('produtos/lista_produtos','Listar Produtos', array("class" => "link_menu"))?></a></li>
 	</nav>
 
 	<div class="container">
