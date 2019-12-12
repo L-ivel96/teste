@@ -1,16 +1,28 @@
     
 		<?php
-			echo form_open("produtos/novo");
+		
+		$url = site_url("produtos");
+		$conf_form = array('class' => 'form-horizontal', 'id'=>'form_cad');
+			echo form_open($url, $conf_form);
+		?>
+
+		<div class="form-group">
+		<?php
 
 			echo form_label("Nome do Produto", "nome");
 			echo form_input(array(
 				"name" => "nome",
 				"class" => "form-control",
 				"id" => "nome",
-				"maxlength" => "255",
-				"placeholder" => "Nome do Produto"
+				"maxlength" => "200",
+				"placeholder" => "Nome do Produto",
+				"required" => "required"
 			));
+		?>
+		</div>
 
+		<div class="form-group">
+		<?php
 			echo form_label("Peso (em KG)", "peso");
 			echo form_input(array(
 				"name" => "peso",
@@ -18,18 +30,22 @@
 				"id" => "peso",
 				"placeholder" => "Peso (em KG)",
 				"type" => "number",
-				"min" => "0"
+				"min" => "0",
+				"required" => "required"
 			));
+		?>
+		</div>
 
+		<div class="form-group">
+		<?php
 			echo form_button(array(
 				"class" => "btn btn-primary",
 				"content" => "Cadastrar",
-				"type" => "button"
+				"type" => "button",
+				"onclick" => "cadastra()"
 			));
-
-			
-			  
-			echo form_close();
-
 		?>
+		</div>
+			
+		<?	echo form_close();	?>
         
