@@ -1,4 +1,6 @@
 <script>
+	var site_url = "<?= site_url() ?>";
+	
 	$(document).ready(function(){
 
 		url_busca = "<?= site_url("produtos/busca_produtos") ?>";
@@ -42,7 +44,7 @@
 				var btn_excluir = $("<span></span>");
 				btn_excluir.attr({
 					class: 'glyphicon glyphicon-trash',
-					onclick: ''
+					onclick: 'excluir_linha(this)'
 				});
 				cell_exc.append(btn_excluir);
 

@@ -11,6 +11,9 @@ function cadastra()
 	})
 	.done(function(resp) 
 	{
+		$("#nome").val("");
+		$("#peso").val("");
+		
 		alert(resp.msg);
 	})
 	.fail(function(XMLHttpRequest, textStatus, errorThrown)
@@ -100,7 +103,7 @@ function cancelar_linha(btn)
 	var btn_excluir = $("<span></span>");
 	btn_excluir.attr({
 		class: 'glyphicon glyphicon-trash',
-		onclick: ''
+		onclick: 'excluir_linha(this)'
 	});
 
 	linha.children('td:nth-child(1)').html("");
@@ -117,15 +120,41 @@ function cancelar_linha(btn)
 
 
 
-function excluir_linha()
+function excluir_linha(btn)
 {
 	var conf = confirm("Deseja realmente deletar este registro?");
 	if (conf == true) 
 	{
+		var linha = $(btn).parent().parent();
+		
+		url_exc = site_url+"/produtos/exclui_produto";
+		console.log(url_exc);
 		//faz req ajax
-
-		var par = $(this).parent().parent(); //tr
-		par.remove();	
+		$.ajax({
+			url: url_exc,
+			type: 'POST',
+			dataType: 'json',
+			data: { id_prod: linha.attr("id") }
+		})
+		.done(function(dados) 
+		{
+			console.log("op: "+dados["op"]);
+			console.log("Id: "+dados["id_prod"]);
+			console.log("post: "+dados["post"]);
+			
+			if(dados["op"])
+			{
+				linha.remove();	
+			}
+			else
+			{
+				alert("Id do registro não localizado");
+			}
+		})
+		.fail(function() {
+			alert("Erro ao realizar a exclusão");
+		})
+		
 	} 
 
 };

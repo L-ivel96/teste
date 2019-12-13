@@ -58,4 +58,24 @@ class Produtos extends CI_Controller
 		echo json_encode($resp);
 	}
 
+	public function exclui_produto()
+	{
+		$this->load->model("produtos_model");
+		$id_prod = $this->input->post("id_prod");
+		$resp = array();
+		$resp["id_prod"] = $id_prod;
+		$resp["post"] = $_POST;
+
+		if($id_prod)
+		{
+			$resp["op"] = $this->produtos_model->exclui_produto($id_prod);
+			echo json_encode($resp);
+		}
+		else
+		{
+			$resp["op"] = false;
+			echo json_encode($resp);
+		}
+	}	
+
 }

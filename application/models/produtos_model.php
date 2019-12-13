@@ -11,4 +11,9 @@
 			return $this->db->get("produtos")->result_array();
  		} 		
 		
+		public function exclui_produto($id_prod)
+		{
+			$this->db->where('Id_produto', $id_prod);
+			return $this->db->delete('produtos');
+ 		}
 	}
