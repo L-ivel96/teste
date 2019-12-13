@@ -1,12 +1,5 @@
-    
-<?php
-
-
-
-?>
-
 <div class="table-responsive">          
-	<table class="table table-striped">
+	<table id="produtos" class="table table-striped">
 		<thead>
 			<tr>
 				<th>Nome</th>
@@ -19,20 +12,20 @@
 			<tr>
 				<td>PROD EXP</td>
 				<td>12</td>
-				<td><span class="glyphicon glyphicon-pencil" onclick=""></span></td>
-				<td><span class="glyphicon glyphicon-remove" onclick=""></span></td>
+				<td><span class="glyphicon glyphicon-pencil" onclick="editar_linha(this)"></span></td>
+				<td><span class="glyphicon glyphicon-trash" onclick=""></span></td>
 			</tr>
 			<tr>
 				<td>PROD EXP 2</td>
-				<td>12</td>
-				<td><span class="glyphicon glyphicon-pencil" onclick=""></span></td>
-				<td><span class="glyphicon glyphicon-remove" onclick=""></span></td>
+				<td>45</td>
+				<td><span class="glyphicon glyphicon-pencil" onclick="editar_linha(this)"></span></td>
+				<td><span class="glyphicon glyphicon-trash" onclick=""></span></td>
 			</tr>
 			<tr>
 				<td>PROD EXP 3</td>
-				<td>12</td>
-				<td><span class="glyphicon glyphicon-pencil" onclick=""></span></td>
-				<td><span class="glyphicon glyphicon-remove" onclick=""></span></td>
+				<td>5</td>
+				<td><span class="glyphicon glyphicon-pencil" onclick="editar_linha(this)"></span></td>
+				<td><span class="glyphicon glyphicon-trash" onclick=""></span></td>
 			</tr>
 		</tbody>
 	</table>
