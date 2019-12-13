@@ -16,4 +16,10 @@
 			$this->db->where('Id_produto', $id_prod);
 			return $this->db->delete('produtos');
  		}
+
+ 		public function atualiza_produto($produto, $id_prod)
+		{
+			$this->db->where('Id_produto', $id_prod);
+			return $this->db->update('produtos', $produto);
+ 		}
 	}

@@ -76,6 +76,43 @@ class Produtos extends CI_Controller
 			$resp["op"] = false;
 			echo json_encode($resp);
 		}
-	}	
+	}
+
+	public function atualiza_produto()
+	{
+		$this->load->model("produtos_model");
+		$id_prod = $this->input->post("id_prod");
+		$nome = $this->input->post("nome");
+		$peso = $this->input->post("peso");
+
+		$resp = array();
+
+		if(!empty($nome) && is_numeric($peso) )
+		{
+			//Organiza o array para insert (garantindo os valores do BD)
+			$prod = array();
+			$prod["nome"] = $nome;
+			$prod["peso"] = $peso;
+
+			$resp["cad"] = $this->produtos_model->atualiza_produto($prod, $id_prod);
+			 
+			if($resp["cad"])
+			{
+				$resp["msg"] = "Os dados foram atualizados com sucesso";
+			}
+			else
+			{
+				$resp["msg"] = "Erro ao atualizar os dados";
+			}
+		}
+		else
+		{
+			$resp["msg"] = "Os dados enviados não foram preenchidos corretamente.";
+		}
+
+		echo json_encode($resp);
+
+
+	}
 
 }

@@ -68,7 +68,7 @@ function editar_linha(btn)
 		var btn_salvar = $("<span></span>");
 		btn_salvar.attr({
 			class: 'glyphicon glyphicon-floppy-disk',
-			onclick: ''
+			onclick: 'salvar_linha(this)'
 		});
 
 		linha.children('td:nth-child(3)').html("");
@@ -87,6 +87,58 @@ function editar_linha(btn)
 	{
 		alert("Já existe uma linha em edição.");
 	}
+}
+
+function salvar_linha(btn)
+{
+	var linha = $(btn).parent().parent();
+	var id_reg = linha.attr("id");
+	var nome_at = $("#nome").val();
+	var peso_at = $("#peso").val();
+	//faz a requisição ajax
+	url_salva = site_url+"/produtos/atualiza_produto";
+	$.ajax({
+		url: url_salva,
+		type: 'POST',
+		dataType: 'json',
+		data: {
+			id_prod: id_reg,
+			nome: nome_at,
+			peso: peso_at
+		}
+	})
+	.done(function(dados) 
+	{
+		alert(dados["msg"]);
+		if(dados["cad"])
+		{
+			var btn_editar = $("<span></span>");
+			btn_editar.attr({
+				class: 'glyphicon glyphicon-pencil',
+				onclick: "editar_linha(this)"
+			});
+
+			var btn_excluir = $("<span></span>");
+			btn_excluir.attr({
+				class: 'glyphicon glyphicon-trash',
+				onclick: 'excluir_linha(this)'
+			});
+
+			linha.children('td:nth-child(1)').html("");
+			linha.children('td:nth-child(1)').html(nome_at);
+			linha.children('td:nth-child(2)').html("");
+			linha.children('td:nth-child(2)').html(peso_at);
+			linha.children('td:nth-child(3)').html("");
+			linha.children('td:nth-child(3)').append(btn_editar);
+			linha.children('td:nth-child(4)').html("");
+			linha.children('td:nth-child(4)').append(btn_excluir);
+		}
+	})
+	.fail(function() {
+		alert("Erro ao testar salvar os dados");
+	})
+
+	edit = false;
 }
 
 function cancelar_linha(btn)
