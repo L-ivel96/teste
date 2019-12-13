@@ -49,4 +49,13 @@ class Produtos extends CI_Controller
 		$this->load->template("produtos/lista", $dados);
 	}
 
+	public function busca_produtos()
+	{
+		$this->load->model("produtos_model");
+
+		$resp = $this->produtos_model->listar_produtos();
+
+		echo json_encode($resp);
+	}
+
 }
